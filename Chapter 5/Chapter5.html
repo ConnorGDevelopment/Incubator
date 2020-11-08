@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang=en manifest="manifest.appcache">
+<head>
+  <title>BMI App</title>
+  
+  <!--Adjusting the page on mobile screen  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1,
+  maximum-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css" />
+  <script src="scripts/jquery-1.8.3.min.js"></script>
+  <script src="scripts/jquery.mobile-1.3.1.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="home">
+    <div data-role="controlgroup">
+        <a href="#user" data-role="button">Login Placeholder</a>
+        <a href="#signup" data-role="button">Signup Placeholder</a>
+    </div>
+</div>    
+<div data-role="page" id="signup">
+    <div data-role="controlgroup">
+        <a href="#home" data-role="button">Return to Home</a>
+    </div>
+</div>    
+<div data-role="page" id="user">
+    <div data-role="controlgroup">
+        <a href="#personal" data-role="button">Personal Info</a>
+        <a href="#body" data-role="button">Body Data</a>
+        <a href="#graphs" data-role="button">Graphs</a>
+        <a href="#advising" data-role="button">Advising</a>
+    </div>
+</div>
+<div data-role="page" id="personal">
+    <div data-role="header">
+        <a href="#pageMenu" data-role="button" data-icon="bars"
+		data-iconpos="left" data-inline="true">Menu</a>
+        <h1>Personal Info</h1>
+    </div>
+    <div data-role="content">
+        <p>Personal Info Goes Here</p>
+    </div>
+</div>
+<div data-role="page" id="body">
+    <div data-role="header">
+        <a href="#pageMenu" data-role="button" data-icon="bars"
+		data-iconpos="left" data-inline="true">Menu</a>
+        <h1>Body Data</h1>
+    </div>
+    <div data-role="content">
+        <p>Body Data Goes Here</p>
+    </div>
+</div>
+<div data-role="page" id="graphs">
+    <div data-role="header">
+        <a href="#pageMenu" data-role="button" data-icon="bars"
+		data-iconpos="left" data-inline="true">Menu</a>
+        <h1>Graphs</h1>
+    </div>
+    <div data-role="content">
+        <p>Graph Data Goes Here</p>
+    </div>
+</div>
+<div data-role="page" id="advising">
+    <div data-role="header">
+        <a href="#pageMenu" data-role="button" data-icon="bars" data-iconpos="left" data-inline="true">Menu</a>
+        <h1>Advising</h1>
+    </div>
+    <div data-role="content">
+        <p>Advising Data Goes Here</p>
+    </div>
+</div>
+</body>
+</html>
+
