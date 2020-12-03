@@ -19,7 +19,7 @@
     <div data-role="controlgroup">
         Password: <input type="password" id="passcode"></input>
         <div data-role="controlgroup" id="numKeyPad">
-            <a data-role="button" id="btnEnter" type="submit">Enter</a>
+            <a data-role="button" id="btnEnter" type="submit" onclick="enterPassword()">Enter</a>
         </div>
         <div data-role="controlgroup" data-type="horizontal">
             <a data-role="button" onclick="addValueToPassword(7)">7</a>
@@ -41,31 +41,64 @@
             <a data-role="button" onclick="addValueToPassword('bksp')" data-icon="delete">del</a>
         </div>
         <div data-role="controlgroup">
-            <a href="#signup" data-role="button">Signup Placeholder</a>
+            <a href="#signup" data-role="button">Signup</a>
         </div>
     </div>
 </div>    
 <div data-role="page" id="signup">
+    <div data-role="content">
+        <form id="frmUserForm" action="">
+            <div data-role="fieldcontain">
+                <label for="txtFirstName">First Name:</label>
+                <input type="text" placeholder="First Name" name="txtFirstName" data-mini="false" id="txtFirstName" value="" required>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="txtLastName">First Name:</label>
+                <input type="text" placeholder="Last Name" name="txtLastName" data-mini="false" id="txtLastName" value="" required>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="datBirthdate">Birthdate:</label>
+                <input type="date" name="datBirthdate" data-mini="false" id="datBirthdate" value="" required>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="changePassword">Edit Password:</label>
+                <input type="password" placeholder="New Password" name="changePassword" data-mini="false" id="changePassword" value="" required>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="txtHealthCardNumber">Health Card Number:</label>
+                <input type="text" placeholder="Health Card Number" name="txtHealthCardNumber" data-mini="false" id="txtHealthCardNumber" value="" required>
+            </div>
+            <input type="submit" id="btnUserUpdate" data-icon="check" data-iconpos="left" value="Update" data-inline="true" onclick="saveUserForm()">
+        </form>
+    </div>
     <div data-role="controlgroup">
         <a href="#home" data-role="button">Return to Home</a>
     </div>
 </div>    
 <div data-role="page" id="userHome">
-    <div data-role="controlgroup">
-        <a href="#personal" data-role="button">Personal Info</a>
-        <a href="#body" data-role="button">Body Data</a>
-        <a href="#graphs" data-role="button">Graphs</a>
-        <a href="#advising" data-role="button">Advising</a>
+    <div data-role="header">
+        <a href="#home" data-role="button" data-icon="bars"
+		data-iconpos="left" data-inline="true">Menu</a>
+        <h1>User Home</h1>
+    </div>
+    <div data-role="content">  
+        <div data-role="controlgroup">
+            <a href="#personal" data-role="button">Personal Info</a>
+            <a href="#body" data-role="button">Body Data</a>
+            <a href="#graphs" data-role="button">Graphs</a>
+            <a href="#advising" data-role="button">Advising</a>
+        </div>
     </div>
 </div>
-<div data-role="page" id="personal">
+<div data-role="page" id="personal" onload="display()">
     <div data-role="header">
-        <a href="#pageMenu" data-role="button" data-icon="bars"
+        <a href="#userHome" data-role="button" data-icon="bars"
 		data-iconpos="left" data-inline="true">Menu</a>
         <h1>Personal Info</h1>
     </div>
     <div data-role="content">
-        <p>Personal Info Goes Here</p>
+        <div id="personalInfo"></div>
+        <a href='#signup' data-mini='true' id='btnProfile' data-role='button' data-icon='edit' data-iconpos='left' data-inline='true'> Edit Profile </a>
     </div>
 </div>
 <div data-role="page" id="body">
@@ -75,7 +108,37 @@
         <h1>Body Data</h1>
     </div>
     <div data-role="content">
-        <p>Body Data Goes Here</p>
+        <div data-role="fieldcontain">
+            <table id="tblRecords" class="ui-responsive-table-stroke"></table>
+        </div>
+        <div data-role="fieldcontain">
+            <a href="#pageNewRecordForm" id="btnAddRecord" data-role="button" data-icon="plus">Add New Entry</a>
+            <a href="#" data-role="button" id="btnClearHistory" data-icon="delete" onclick="clearRecord()">Clear History</a>
+        </div>
+    </div>
+</div>
+<div data-role="page" id="pageNewRecordForm">
+    <div data-role="header">
+        <a href="#body" data-role="button" data-icon="bars"
+        data-iconpos="left" data-inline="true">Menu</a>
+        <h1>Add New Entry</h1>
+    </div>
+    <div data-role="content">
+        <form id="frmUserForm" action="">
+            <div data-role="fieldcontain">
+                <label for="datRecordDate">Date:</label>
+                <input type="date" name="datRecordDate" data-mini="false" id="datRecordDate" value="" required>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="numRecordWeight">Weight (Kilograms):</label>
+                <input type="number" placeholder="Weight" name="numRecordWeight" data-mini="false" id="numRecordWeight" value="" required>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="numRecordHeight">Height (Meters):</label>
+                <input type="number" placeholder="Height" name="numRecordHeight" data-mini="false" id="numRecordHeight" value="" required>
+            </div>
+            <input type="submit" id="btnSubmitRecord" data-icon="plus" data-iconpos="left" value="Add Record" data-inline="true" onclick="addRecord()">
+        </form>
     </div>
 </div>
 <div data-role="page" id="graphs">
